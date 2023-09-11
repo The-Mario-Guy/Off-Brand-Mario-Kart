@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -24,5 +25,11 @@ public class PlayerController : MonoBehaviour
         transform.Translate(Vector3.forward * speed * _verticalInput * Time.deltaTime);
         //da turn
         transform.Rotate(Vector3.up, turnSpeed * _horizontalInput * Time.deltaTime);
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            //Grabs the current scene and relodes it
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
     }
 }
